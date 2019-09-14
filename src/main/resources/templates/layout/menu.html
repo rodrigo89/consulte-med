@@ -21,7 +21,11 @@
                                 </li>
                                 
                                 <li sec:authorize="hasAuthority('ADMIN')">
-                                    <a th:href="@{/contatos}">Pacientes</a>
+                                    <a th:href="@{/pacientes}">Pacientes</a>
+                                </li>
+                                
+                                <li sec:authorize="hasAuthority('ADMIN')">
+                                    <a th:href="@{/medicos}">Médicos</a>
                                 </li>
                                 
                                 <li sec:authorize="hasAuthority('ADMIN')">

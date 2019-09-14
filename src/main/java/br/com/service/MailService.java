@@ -37,7 +37,7 @@ public class MailService {
 		  MimeMessage mail = javaMailSender.createMimeMessage();
 
           MimeMessageHelper helper = new MimeMessageHelper( mail );
-          helper.setTo( "cbgomesiesp@gmail.com" );
+          helper.setTo( "rodrigog.sobral@gmail.com" );
           helper.setSubject( "Teste Envio de e-mail" );
           helper.setText("<p>Hello from Spring Boot Application</p>", true);
           javaMailSender.send(mail);
@@ -54,7 +54,7 @@ public class MailService {
 
         SimpleMailMessage message = new SimpleMailMessage();
         message.setTo( usuario.getEmail());
-        message.setFrom("cbarbosagomesfilho@gmail.com");
+        message.setFrom("rodrigog.sobral@gmail.com");
         message.setSubject( "Teste Envio de e-mail sistema consultemed funcionando" );
         message.setText("Serviço de envio de e-mail funcionando perfeitamente .....");
         javaMailSender.send(message);

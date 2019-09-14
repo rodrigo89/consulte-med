@@ -89,4 +89,8 @@ public class ContatoService {
 		this.repository.saveAndFlush(contato);
 	}
 
+	public void editar(Contato c) {
+		this.repository.saveAndFlush(c);
+	}
+
 }

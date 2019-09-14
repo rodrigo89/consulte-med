@@ -41,8 +41,8 @@ public class MailController {
 
 		SimpleMailMessage message = new SimpleMailMessage();
 		message.setText("Hello from Spring Boot Application");
-		message.setTo("cbgomesiesp@gmail.com");
-		message.setFrom("cbgomesiesp@gmail.com");
+		message.setTo("rodrigog.sobral@gmail.com");
+		message.setFrom("rodrigog.sobral@gmail.com");
 
 		try {
 			this.service.sendMail(message);
@@ -59,7 +59,7 @@ public class MailController {
 		Usuario usuario = new Usuario();
 		usuario.setPrimeiroNome("Carlos Barbosa");
 		usuario.setSegundoNome("Barbosa Gomes Filho");
-		usuario.setEmail("cbgomesiesp@gmail.com");
+		usuario.setEmail("rodrigog.sobral@gmail.com");
 		
 		this.service.sendMail(usuario);
 		return "/pages/usuario/usuarios";
