@@ -34,3 +34,11 @@ CREATE TABLE IF NOT EXISTS fornecedores (
 	PRIMARY KEY (id)
     
 );
+
+CREATE TABLE IF NOT EXISTS agendamentos (
+	id INT NOT NULL AUTO_INCREMENT,
+    contato_id INT NOT NULL,
+	dataAgendamento DATETIME NOT NULL,
+    CONSTRAINT FK_contato_id FOREIGN KEY (contato_id) REFERENCES contatos (id),
+	PRIMARY KEY (id)
+);
