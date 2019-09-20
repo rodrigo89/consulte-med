@@ -28,6 +28,11 @@ public class ContatoService {
 		return this.repository.findAll();
 	}
 	
+	@Transactional(readOnly=true)
+	public int qtd(){
+		return this.repository.findAll().size();
+	}
+	
 	@Transactional
 	public void save(Contato contato) {
 		this.repository.save(contato);

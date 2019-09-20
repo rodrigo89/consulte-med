@@ -13,7 +13,6 @@ import br.com.model.Paciente;
 import br.com.model.dto.PacientePesquisaDTO;
 import br.com.repository.PacienteRepository;
 
-
 /**
  * @author carlosbarbosagomesfilho
  *
@@ -25,8 +24,13 @@ public class PacienteService {
 	private PacienteRepository repository;
 	
 	@Transactional(readOnly=true)
-	public List<Paciente> lista(){
+	public List<Paciente> list(){
 		return this.repository.findAll();
+	}
+	
+	@Transactional(readOnly=true)
+	public int qtd(){
+		return this.repository.findAll().size();
 	}
 	
 	@Transactional
@@ -50,6 +54,48 @@ public class PacienteService {
 	}
 
 
+	@Transactional
+	public boolean ativarDesativar(Long id) {
+		
+		
+		boolean ativou = false;
+		
+		Paciente paciente = this.repository.getOne(id);
+		if(paciente.isAtivo()) {
+			paciente.setAtivo(false);
+			return ativou;
+		}else {
+			paciente.setAtivo(true);
+			ativou = true;
+		}
+		return ativou;
+	}
+	
+	public boolean ativaDesativarPaciente(Paciente paciente) {
+		if (paciente.isAtivo()) {
+			ativaDesativaUsuario(paciente);
+		} else {
+			ativaDesativaUsuario(paciente);
+		}
+		return false;
+	}
 
+
+	
+	@Transactional
+	private void ativaDesativaUsuario(Paciente paciente) {
+
+		if (paciente.isAtivo()) {
+			paciente.setAtivo(false);
+		} else {
+			paciente.setAtivo(true);
+		}
+
+		this.repository.saveAndFlush(paciente);
+	}
+
+	public void editar(Paciente c) {
+		this.repository.saveAndFlush(c);
+	}
 
 }

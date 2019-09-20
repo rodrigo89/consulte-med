@@ -17,7 +17,7 @@
                                     <a th:href="@{/contatos}">Contatos</a>
                                 </li>
                                  <li sec:authorize="hasAuthority('ADMIN')">
-                                    <a th:href="@{/contatos}">Agendamentos</a>
+                                    <a th:href="@{/agendamentos}">Agendamentos</a>
                                 </li>
                                 
                                 <li sec:authorize="hasAuthority('ADMIN')">
@@ -29,7 +29,7 @@
                                 </li>
                                 
                                 <li sec:authorize="hasAuthority('ADMIN')">
-                                    <a th:href="@{/contatos}">Usuários</a>
+                                    <a th:href="@{/usuarios}">Usuários</a>
                                 </li>
                                 <li sec:authorize="hasAuthority('ADMIN')">
                                     <a th:href="@{/outros/morris}">Morris</a>

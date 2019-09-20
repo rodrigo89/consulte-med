@@ -33,6 +33,11 @@ import lombok.Setter;
 @EqualsAndHashCode(of="id")
 public class Paciente implements Serializable {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Long id;
@@ -40,6 +45,23 @@ public class Paciente implements Serializable {
 	@NotBlank(message = "Nome é obrigatório")
 	private String nome;
 	
+	@NotEmpty(message = "{email.vazio}")
+	@Email
+	private String email;
+	
+	@NotBlank(message = "Telefone é obrigatório")
+	private String telefone;
+	
+	private boolean ativo = true;
+	
+	public boolean isAtivo() {
+		return ativo;
+	}
+
+	public void setAtivo(boolean ativo) {
+		this.ativo = ativo;
+	}
+
 	@Override
 	public String toString() {
 		return "Paciente [id=" + id + ", nome=" + nome + ", email=" + email + ", telefone=" + telefone + "]";
@@ -77,10 +99,5 @@ public class Paciente implements Serializable {
 		this.telefone = telefone;
 	}
 
-	@NotEmpty(message = "{email.vazio}")
-	@Email
-	private String email;
-	
-	@NotBlank(message = "Telefone é obrigatório")
-	private String telefone;
+
 }

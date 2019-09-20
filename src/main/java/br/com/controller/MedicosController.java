@@ -17,35 +17,35 @@ import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import org.thymeleaf.util.StringUtils;
 
-import br.com.model.Paciente;
-import br.com.model.dto.PacientePesquisaDTO;
-import br.com.service.PacienteService;
+import br.com.model.Medico;
+import br.com.model.dto.MedicoPesquisaDTO;
+import br.com.service.MedicoService;
 
 
 
 @Controller
-@RequestMapping("/pacientes")
-public class PacientesController {
+@RequestMapping("/medicos")
+public class MedicosController {
 	
-	private static final String PAGES_PACIENTE_NOVO_PACIENTE = "pages/paciente/novo_paciente";
+	private static final String PAGES_PACIENTE_NOVO_PACIENTE = "pages/medico/novo_medico";
 
-	private static final String PAGES_PACIENTE_PACIENTES = "pages/paciente/pacientes";
+	private static final String PAGES_PACIENTE_PACIENTES = "pages/medico/medicos";
 	
 	@Autowired
-	private PacienteService service;
+	private MedicoService service;
 	
 	
 	
 	@GetMapping
-	public ModelAndView listar(@ModelAttribute("filtro") PacientePesquisaDTO filtro) {
+	public ModelAndView listar(@ModelAttribute("filtro") MedicoPesquisaDTO filtro) {
 		ModelAndView mv = new ModelAndView(PAGES_PACIENTE_PACIENTES);		
 		
 		if(!StringUtils.isEmpty(filtro.getNome())) {
-			List<Paciente> pacientes = this.service.filtrar(filtro);
-			mv.addObject("pacientes", pacientes);
+			List<Medico> medicos = this.service.filtrar(filtro);
+			mv.addObject("medicos", medicos);
 			
 		}else {
-			mv.addObject("pacientes", service.list());
+			mv.addObject("medicos", service.list());
 		}
 		
 		return mv;
@@ -53,36 +53,36 @@ public class PacientesController {
 	
 	@GetMapping("/delete/{id}")
 	public ModelAndView excluir(@PathVariable Long id, RedirectAttributes attributes) {
-		ModelAndView mv = new ModelAndView("redirect:/pacientes");
+		ModelAndView mv = new ModelAndView("redirect:/medicos");
 		this.service.remove(id);
-		attributes.addFlashAttribute("removido", "Paciente removido com sucesso!");
+		attributes.addFlashAttribute("removido", "Medico removido com sucesso!");
 		return mv;
 	}
 	
 	@GetMapping("/edit/{id}")
 	public ModelAndView edit(@PathVariable("id") Long id) {
-		Paciente paciente = this.service.getById(id); 
-		return novo(paciente);
+		Medico medico = this.service.getById(id); 
+		return novo(medico);
 	}
 	
 	@GetMapping("/novo")
-	public ModelAndView novo(Paciente paciente) {
+	public ModelAndView novo(Medico medico) {
 		ModelAndView mv = new ModelAndView(PAGES_PACIENTE_NOVO_PACIENTE);
-		mv.addObject("paciente", paciente);
+		mv.addObject("medico", medico);
 		return mv;
 	}
 	
 	
 	@PostMapping("/save")
-	public ModelAndView salvar(@Valid Paciente paciente, BindingResult result, Model model, RedirectAttributes attributes){
-		ModelAndView mv = new ModelAndView("redirect:/pacientes");
+	public ModelAndView salvar(@Valid Medico medico, BindingResult result, Model model, RedirectAttributes attributes){
+		ModelAndView mv = new ModelAndView("redirect:/medicos");
 		
 		if (result.hasErrors()) {
-			return novo(paciente);
+			return novo(medico);
 		}
 
-		attributes.addFlashAttribute("mensagem", "Paciente salvo com sucesso");
-		this.service.save(paciente);
+		attributes.addFlashAttribute("mensagem", "Medico salvo com sucesso");
+		this.service.save(medico);
 		return mv;
 	}
 

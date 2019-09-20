@@ -20,7 +20,7 @@
                                     <i class="fa fa-tasks fa-5x"></i>
                                 </div>
                                 <div class="col-xs-9 text-right">
-                                    <div class="huge">26</div>
+                                    <div class="huge"><span th:text="${contatos_qtd}"></span></div>
                                     <div>Contatos</div>
                                 </div>
                             </div>
@@ -35,7 +35,7 @@
                                     <i class="fa fa-tasks fa-5x"></i>
                                 </div>
                                 <div class="col-xs-9 text-right">
-                                    <div class="huge">12</div>
+                                    <div class="huge"><span th:text="${medicos_qtd}"></span></div>
                                     <div>Médicos</div>
                                 </div>
                             </div>
@@ -50,7 +50,7 @@
                                     <i class="fa fa-tasks fa-5x"></i>
                                 </div>
                                 <div class="col-xs-9 text-right">
-                                    <div class="huge">124</div>
+                                    <div class="huge"><span th:text="${agendamentos_qtd}"></span></div>
                                     <div>Agendamentos</div>
                                 </div>
                             </div>
@@ -65,7 +65,9 @@
                                     <i class="fa fa-tasks fa-5x"></i>
                                 </div>
                                 <div class="col-xs-9 text-right">
-                                    <div class="huge">13</div>
+                                    <div class="huge">
+                                    	<span th:text="${pacientes_qtd}"></span>
+                                    </div>
                                     <div>Pacientes</div>
                                 </div>
                             </div>

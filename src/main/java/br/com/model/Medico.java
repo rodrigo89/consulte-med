@@ -33,6 +33,11 @@ import lombok.Setter;
 @EqualsAndHashCode(of="id")
 public class Medico implements Serializable {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Long id;
@@ -47,6 +52,17 @@ public class Medico implements Serializable {
 	@NotBlank(message = "CRM é obrigatório")
 	private String crm;
 	
+	
+	private boolean ativo = true;
+	
+	public boolean isAtivo() {
+		return ativo;
+	}
+
+	public void setAtivo(boolean ativo) {
+		this.ativo = ativo;
+	}
+
 	@Override
 	public String toString() {
 		return "Medico [id=" + id + ", nome=" + nome + ", email=" + email + ", crm=" + crm + "]";

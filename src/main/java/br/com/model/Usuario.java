@@ -17,6 +17,10 @@ import lombok.Setter;
 @Setter
 public class Usuario implements Serializable {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private String primeiroNome;
 	private String segundoNome;
 	private String email;

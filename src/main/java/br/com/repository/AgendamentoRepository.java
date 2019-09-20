@@ -8,7 +8,7 @@ import java.util.List;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
-import br.com.model.Medico;
+import br.com.model.Agendamento;
 
 
 /**
@@ -17,7 +17,7 @@ import br.com.model.Medico;
  * 
  */
 @Repository
-public interface MedicoRepository extends JpaRepository<Medico, Long> {
+public interface AgendamentoRepository extends JpaRepository<Agendamento, Long> {
 
-	public List<Medico> findByNomeContaining(String nome);
+	public List<Agendamento> findByNomeContaining(String nome);
 }
