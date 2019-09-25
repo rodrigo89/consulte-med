@@ -9,14 +9,15 @@ package br.com.model.dto;
  */
 public class AgendamentoPesquisaDTO {
 
-	private String nome;
+	private Long Id;
 
-	public String getNome() {
-		return nome;
+	public Long getId() {
+		return Id;
 	}
 
-	public void setNome(String nome) {
-		this.nome = nome;
+	public void setId(Long Id) {
+		this.Id = Id;
 	}
+
 
 }

@@ -49,57 +49,40 @@ public class Agendamento implements Serializable {
 	@NotEmpty(message="Paciente é obrigatório")
 	private Paciente paciente;
 	
-	private String nome;
 	
 	@NotEmpty(message="Médico é obrigatório")
 	private Medico medico;
-	
-	@Temporal(TemporalType.TIMESTAMP)
-	@NotEmpty(message="Data agendamento é obrigatório")
-	private Date dataAgendamento;
-	
-	private boolean ativo = true;
-	
-	public boolean isAtivo() {
-		return ativo;
-	}
 
-	public void setAtivo(boolean ativo) {
-		this.ativo = ativo;
-	}
 
 	public Long getId() {
 		return id;
 	}
 
+
 	public void setId(Long id) {
 		this.id = id;
 	}
 
-	
 
 	public Paciente getPaciente() {
 		return paciente;
 	}
 
+
 	public void setPaciente(Paciente paciente) {
 		this.paciente = paciente;
 	}
+
 
 	public Medico getMedico() {
 		return medico;
 	}
 
+
 	public void setMedico(Medico medico) {
 		this.medico = medico;
 	}
+	
 
-	public Date getDataAgendamento() {
-		return dataAgendamento;
-	}
-
-	public void setDataAgendamento(Date dataAgendamento) {
-		this.dataAgendamento = dataAgendamento;
-	}
 	
 }

@@ -19,5 +19,5 @@ import br.com.model.Agendamento;
 @Repository
 public interface AgendamentoRepository extends JpaRepository<Agendamento, Long> {
 
-	public List<Agendamento> findByNomeContaining(String nome);
+	public List<Agendamento> findByIdContaining(Long Id);
 }

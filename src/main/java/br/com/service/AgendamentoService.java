@@ -49,50 +49,10 @@ public class AgendamentoService {
 	}
 	
 	public List<Agendamento> filtrar(AgendamentoPesquisaDTO agendamento) {
-		String nome = agendamento.getNome() == null ? "%" : agendamento.getNome()+"%";
-		return repository.findByNomeContaining(nome);
+		Long Id = agendamento.getId() == null ? null : agendamento.getId();
+		return repository.findByIdContaining(Id);
 	}
 
-
-	@Transactional
-	public boolean ativarDesativar(Long id) {
-		
-		
-		boolean ativou = false;
-		
-		Agendamento agendamento = this.repository.getOne(id);
-		if(agendamento.isAtivo()) {
-			agendamento.setAtivo(false);
-			return ativou;
-		}else {
-			agendamento.setAtivo(true);
-			ativou = true;
-		}
-		return ativou;
-	}
-	
-	public boolean ativaDesativarAgendamento(Agendamento agendamento) {
-		if (agendamento.isAtivo()) {
-			ativaDesativaUsuario(agendamento);
-		} else {
-			ativaDesativaUsuario(agendamento);
-		}
-		return false;
-	}
-
-
-	
-	@Transactional
-	private void ativaDesativaUsuario(Agendamento agendamento) {
-
-		if (agendamento.isAtivo()) {
-			agendamento.setAtivo(false);
-		} else {
-			agendamento.setAtivo(true);
-		}
-
-		this.repository.saveAndFlush(agendamento);
-	}
 
 	public void editar(Agendamento c) {
 		this.repository.saveAndFlush(c);

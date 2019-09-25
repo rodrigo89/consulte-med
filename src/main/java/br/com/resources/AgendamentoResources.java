@@ -59,7 +59,6 @@ public class AgendamentoResources {
 		Agendamento c = this.service.getById(agendamento.getId());
 		c.setPaciente(agendamento.getPaciente());
 		c.setMedico(agendamento.getMedico());
-		c.setAtivo(agendamento.isAtivo());
 		this.service.editar(c);
 		return ResponseEntity.ok().body(c);
 	}
